@@ -13,20 +13,17 @@ async function main() {
     // Create a new blockchain instance
     const blockchain = new Blockchain();
 
+    // Create the necessary accounts
+    const [useraccount, chancegameAccount] = blockchain.createAccounts('useraccount', 'chancegame');
+
     // Deploy the token contracts
     const eosioToken = blockchain.createContract('eosio.token', 'contracts/eosio.token', true);
 
     // Deploy the chancegame contract
-    const chancegame = blockchain.createContract('chancegame', 'target/chancegame.contract', true);
-
-    // Create the necessary accounts
-    const [useraccount] = blockchain.createAccounts('useraccount');
-
-    // Convert the user account name to a Name type
-    const userName = Name.fromString(useraccount.name);
+    const chancegame = blockchain.createContract(chancegameAccount.name, 'target/chancegame.contract', true);
 
     // Mint tokens and allocate to the account
-    await mintTokens(eosioToken, 'XPR', 4, 1000000000, 100000000, [userName]);
+    await mintTokens(eosioToken, 'XPR', 4, 1000000000, 100000000, [useraccount.name]); // Adjusting for XPR
 
     // Ensure the blockchain state is properly initialized
     await wait(5);
