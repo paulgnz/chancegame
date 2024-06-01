@@ -9,6 +9,11 @@ async function wait(ms: number) {
 async function main() {
     const blockchain = new Blockchain();
     const contract = blockchain.createContract('chancegame', 'target/chancegame.contract');
+    
+    //HERE
+    const account = blockchain.createAccounts("useraccount"); 
+    //You need an account existing on the blockchain with the name you use in the contract.send('account@permission')
+    
     await wait(0);
 
     // Test the bet action
