@@ -1,0 +1,59 @@
+{
+  "version": "eosio::abi/1.2",
+  "structs": [
+    {
+      "name": "Bet",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "bet_amount",
+          "type": "uint64"
+        },
+        {
+          "name": "reward_amount",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "bet",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "bet_amount",
+          "type": "uint64"
+        }
+      ]
+    }
+  ],
+  "types": [],
+  "actions": [
+    {
+      "name": "bet",
+      "type": "bet",
+      "ricardian_contract": ""
+    }
+  ],
+  "tables": [
+    {
+      "name": "bets",
+      "type": "Bet",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": []
+    }
+  ],
+  "ricardian_clauses": [],
+  "variants": [],
+  "action_results": [],
+  "abi_extensions": [],
+  "error_messages": []
+}
