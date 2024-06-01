@@ -42,6 +42,7 @@ async function main() {
 
     // Deploy the chancegame contract
     const chancegame = blockchain.createContract(chancegameAccount.name, 'target/chancegame.contract', true);
+    await wait(0);
 
     // Mint tokens and allocate to the accounts
     await mintTokens(eosioToken, 'XPR', 4, 1000000000, 100000000, recipients); // Pass an array of Name objects
