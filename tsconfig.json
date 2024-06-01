@@ -18,6 +18,10 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true
   },
+  "include": [
+    "./*.ts",
+    "./tests/**/*.ts"
+  ],
   "exclude": [
     "./node_modules/*"
   ]
